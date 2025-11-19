@@ -10,8 +10,6 @@ from dotenv import load_dotenv
 # --- 0. Environment and Config Setup ---
 load_dotenv()
 
-# Note: In a real-world scenario, you might need to handle the environment
-# variables differently if running outside a local setup.
 OLLAMA_MODEL_NAME = os.getenv("OLLAMA_MODEL_NAME")
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL")
 
@@ -24,7 +22,6 @@ if not OLLAMA_MODEL_NAME or not OLLAMA_BASE_URL:
 def initialize_llm():
     """Initializes and caches the CrewAI LLM connection."""
     try:
-        # Assuming the LLM wrapper handles connection details based on inputs
         llm = LLM(
             model=OLLAMA_MODEL_NAME,
             base_url=OLLAMA_BASE_URL,
@@ -172,11 +169,13 @@ def run_candlestick_analysis(llm, ticker, ohlcv_data_string, summary):
         allow_delegation=False
     )
 
-    # --- Task Definitions (No change needed) ---
+    # --- Task Definitions ---
     pattern_task = Task(
         description=dedent(f"""
             Analyze the real historical data for {ticker}.
-            Data:
+            **IMPORTANT:** The most recent closing price and indicator values are explicitly provided in the 'KEY INDICATOR SUMMARY'. Always use this summary for the current market state and for the last day's price.
+            
+            Data (last 10 trading days):
             ---
             {ohlcv_data_string}
             ---
@@ -238,7 +237,7 @@ def main():
 
     # Sidebar for configuration and status
     st.sidebar.header("Configuration")
-    llm = initialize_llm() # Initialize LLM
+    llm = initialize_llm()
 
     # Main input
     ticker_input = st.text_input(
@@ -266,11 +265,9 @@ def main():
         col1, col2 = st.columns([1, 2])
 
         with col1:
-            # Display last 10 days of OHLCV/Volume from the full 15-day DF
             st.dataframe(ohlcv_df[['Open', 'High', 'Low', 'Close', 'Volume']].tail(10))
 
         with col2:
-            # Chart last 30 days of data (if available)
             st.line_chart(ohlcv_df['Close'].tail(30))
 
         st.markdown("---")
@@ -284,13 +281,10 @@ def main():
         if "CRITICAL EXECUTION ERROR" in final_report:
             st.error(final_report)
         else:
-            # The final result is the output of the Strategy Architect
-            # We use markdown since the crew output is likely formatted as such
             st.info(f"**Actionable Trading Plan from Risk Architect:**\n\n{final_report}")
 
-            # Use an expander to show the detailed market strategist report
             with st.expander("📝 View Detailed Market Analysis"):
-                st.markdown(final_report) # LLM output often contains markdown, so use st.markdown
+                st.markdown(final_report)
 
         st.success("✅ Advanced Analysis Complete!")
 
