@@ -1,14 +1,14 @@
-## 🕯️📊 Advanced Trading Insights Analyzer
+# 🕯️📊 Advanced Trading Insights Analyzer
 
 This project is a sophisticated Streamlit application that utilizes a CrewAI multi-agent system and a local Ollama-hosted Large Language Model (LLM) to perform in-depth technical analysis and generate actionable trading plans for any stock ticker. It moves beyond simple charting by integrating crucial financial indicators and risk management into the analysis pipeline.
 
-# 🚀 Features
+## 🚀 Features
 
-* Multi-Indicator Analysis: Automatically calculates and integrates the 14-day RSI, 50-day SMA, and 200-day SMA for comprehensive market context.
+* **Multi-Indicator Analysis**: Automatically calculates and integrates the 14-day RSI, 50-day SMA, and 200-day SMA for comprehensive market context.
 
-* Volume-Confirmed Patterns: Identifies significant candlestick patterns (e.g., Hammer, Doji, Engulfing) and assesses their reliability based on recent trading volume.
+* **Volume-Confirmed Patterns**: Identifies significant candlestick patterns (e.g., Hammer, Doji, Engulfing) and assesses their reliability based on recent trading volume.
 
-* Three Specialized AI Agents (CrewAI Pipeline): A robust, sequential pipeline ensures specialized and grounded analysis:
+* **Three Specialized AI Agents (CrewAI Pipeline)**: A robust, sequential pipeline ensures specialized and grounded analysis:
 
     1. Candlestick and Volume Expert: Focuses on short-term price action and volume confirmation.
 
@@ -16,13 +16,13 @@ This project is a sophisticated Streamlit application that utilizes a CrewAI mul
 
     3. Trading Strategy Architect: Creates a quantifiable trade plan with Entry, Stop-Loss, and Take-Profit levels.
 
-* Local LLM Integration: Uses the CrewAI Ollama wrapper to connect to a local model (e.g., Mistral, Llama 3), ensuring data privacy and cost efficiency.
+* **Local LLM Integration**: Uses the CrewAI Ollama wrapper to connect to a local model (e.g., Mistral, Llama 3), ensuring data privacy and cost efficiency.
 
-* Interactive UI: A Streamlit interface for easy ticker input, visualization of the last 30 days of price data, and clear display of the final trade plan.
+* **Interactive UI**: A Streamlit interface for easy ticker input, visualization of the last 30 days of price data, and clear display of the final trade plan.
 
-* Professional Output: Generates a professional-grade analysis report with a clear, actionable trading conclusion.
+* **Output**: Generates a professional-grade analysis report with a clear, actionable trading conclusion.
 
-# 📋 Installation and Setup
+## 📋 Installation and Setup
 
 1. Get Ollama and Model
 
@@ -71,7 +71,7 @@ streamlit run trading_insights.py
 
 The application will launch in your web browser, typically at http://localhost:8501.
 
-# 🧠 CrewAI Agent Pipeline
+## 🧠 CrewAI Agent Pipeline
 
 The analysis flows sequentially through the three specialized agents, ensuring that the final trading plan is fully grounded in the technical analysis.
 
