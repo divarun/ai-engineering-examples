@@ -1,26 +1,7 @@
 # 🕯️📊 Advanced Trading Insights Analyzer
 
-This project is a sophisticated Streamlit application that utilizes a CrewAI multi-agent system and a local Ollama-hosted Large Language Model (LLM) to perform in-depth technical analysis and generate actionable trading plans for any stock ticker. It moves beyond simple charting by integrating crucial financial indicators and risk management into the analysis pipeline.
-
-## 🚀 Features
-
-* **Multi-Indicator Analysis**: Automatically calculates and integrates the 14-day RSI, 50-day SMA, and 200-day SMA for comprehensive market context.
-
-* **Volume-Confirmed Patterns**: Identifies significant candlestick patterns (e.g., Hammer, Doji, Engulfing) and assesses their reliability based on recent trading volume.
-
-* **Three Specialized AI Agents (CrewAI Pipeline)**: A robust, sequential pipeline ensures specialized and grounded analysis:
-
-    1. Candlestick and Volume Expert: Focuses on short-term price action and volume confirmation.
-
-    2. Multi-Indicator Market Strategist: Synthesizes all data (Patterns, RSI, SMAs) into a market forecast.
-
-    3. Trading Strategy Architect: Creates a quantifiable trade plan with Entry, Stop-Loss, and Take-Profit levels.
-
-* **Local LLM Integration**: Uses the CrewAI Ollama wrapper to connect to a local model (e.g., Mistral, Llama 3), ensuring data privacy and cost efficiency.
-
-* **Interactive UI**: A Streamlit interface for easy ticker input, visualization of the last 30 days of price data, and clear display of the final trade plan.
-
-* **Output**: Generates a professional-grade analysis report with a clear, actionable trading conclusion.
+This project is a sophisticated Streamlit application that utilizes a CrewAI multi-agent system and a local Ollama-hosted Large Language Model (LLM). 
+It performs an in-depth technical analysis for any stock ticker, synthesizing complex market data to generate a detailed, actionable trading plan focused on risk management.
 
 ## 📋 Installation and Setup
 
@@ -66,7 +47,7 @@ OLLAMA_MODEL_NAME="mistral"
 
 Start the Streamlit application from your terminal:
 ```
-streamlit run trading_insights.py
+python -m streamlit run app.py
 ```
 
 The application will launch in your web browser, typically at http://localhost:8501.
