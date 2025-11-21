@@ -52,13 +52,3 @@ python -m streamlit run app.py
 
 The application will launch in your web browser, typically at http://localhost:8501.
 
-## 🧠 CrewAI Agent Pipeline
-
-The analysis flows sequentially through the three specialized agents, ensuring that the final trading plan is fully grounded in the technical analysis.
-
-| Stage | Agent Role |Key Task | Output Consumed By |
-|-------|:----------:|:--------:|:-------------------|
-| 1     | Candlestick Expert  |Identify candlestick patterns and confirm their reliability using volume data.| Market Strategist  |
-| 2     | Market Strategist  | Synthesize patterns with RSI and SMA indicators to determine the short-term market forecast (Bullish/Bearish/Neutral).| Strategy Architect |
-| 3     |Strategy Architect  |Use the forecast to create a clear, actionable trading plan including Entry, Stop-Loss, and Take-Profit prices. | Final Report       |
-
